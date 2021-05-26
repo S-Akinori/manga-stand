@@ -20,7 +20,7 @@ class CreateMangaVolumesTable extends Migration
             $table->unsignedBigInteger('package_id');
             $table->unsignedInteger('volume');
             $table->text('dir_path');
-            $table->text('image_path')->default('storage/img/no-manga-image.jpg');
+            $table->text('image_path');
             $table->string('description')->nullable();
             $table->unsignedInteger('favorites')->default(0);
         });
