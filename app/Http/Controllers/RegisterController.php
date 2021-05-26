@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Mail;
 class RegisterController extends Controller
 {
     public function register(Request $request) {
-
+        dd($request->all());
         $is_user = User::where('email', $request->email)->exists();
         if($is_user) {
             return response()->json([
@@ -26,7 +26,7 @@ class RegisterController extends Controller
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'email_verify_token' => sha1(time()),
-                ]);
+            ]);
             Mail::to($user->email)->send(new EmailVerification($user));
         }
         return $user;

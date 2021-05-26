@@ -66,7 +66,7 @@ export default {
                 password: this.password,
             }).then(response => {
                 console.log(response);
-                this.message = '認証メールを送信しました。メール内のURLから認証を完了させてください。'
+                this.message = '認証メールを送信しました。メール内のURLから認証を完了させてください。';
                 // this.$router.push("/login");
             }).catch(error => {
                 console.log(error);
