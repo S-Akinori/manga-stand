@@ -12,8 +12,8 @@ use Illuminate\Support\Facades\Mail;
 class RegisterController extends Controller
 {
     public function register(Request $request) {
-        dd($request->all());
         $is_user = User::where('email', $request->email)->exists();
+        dd($is_user);
         if($is_user) {
             return response()->json([
                 'name' => 'email',
