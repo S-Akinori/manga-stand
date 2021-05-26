@@ -60,7 +60,6 @@ export default {
             }
 
             axios.post("/api/register", {
-                _token: this.csrfToken,
                 name: this.name,
                 username: this.userName,
                 email: this.email,
