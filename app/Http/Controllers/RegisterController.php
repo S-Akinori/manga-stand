@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\Mail;
 class RegisterController extends Controller
 {
     public function register(Request $request) {
-        
+
         $is_user = User::where('email', $request->email)->exists();
         if($is_user) {
             return response()->json([
@@ -26,6 +26,7 @@ class RegisterController extends Controller
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
                 'email_verify_token' => sha1(time()),
+                'img_path' => '/storage/img/no-profile.png'
             ]);
             Mail::to($user->email)->send(new EmailVerification($user));
         }
