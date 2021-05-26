@@ -18,7 +18,7 @@ class CreateMangaPackagesTable extends Migration
             $table->timestamps();
             $table->unsignedBigInteger('user_id');
             $table->text('dir_path');
-            $table->text('package_img_path')->default('/storage/img/no-manga-image.jpg');
+            $table->text('package_img_path');
             $table->string('title');
             $table->string('description')->nullable();
             $table->string('category')->nullable();
