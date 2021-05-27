@@ -25,7 +25,7 @@ class RegisterController extends Controller
                 'username' => $request->username,
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
-                'email_verify_token' => sha1(time()),
+                'email_verify_token' => sha1(uniqid()),
                 'img_path' => '/storage/img/no-profile.png'
             ]);
             Mail::to($user->email)->send(new EmailVerification($user));
@@ -37,7 +37,7 @@ class RegisterController extends Controller
 
         $user = User::find($request->id);
         if($user) {
-            $user->email_verify_token = sha1(time());
+            $user->email_verify_token = sha1(uniqid());
             $user->save();
     
             Mail::to($user->email)->send(new EmailVerification($user));
