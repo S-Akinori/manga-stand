@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->string('description')->nullable();
             $table->string('img_path');
-            $table->unsignedBigInteger('point');
+            $table->unsignedBigInteger('point')->default(100);
             $table->timestamps();
         });
     }
